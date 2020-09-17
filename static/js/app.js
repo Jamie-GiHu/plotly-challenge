@@ -25,75 +25,46 @@ d3.json(pathSamples)
     // Use DOM to get value of id for bar chart when page first loads
     var inputValue = document.getElementById("selDataset").value;
 
-    // Invoke function based on value in dropdown menu
-    optionChanged(inputValue);
-
+    // Invoke function based on value in dropdown menu when page loads
+    barChart(inputValue);
     bubbleChart(inputValue);
-
     popMetadata(inputValue);
-
     gaugeChart(inputValue);
 
 });
 
 // Function to create a horizontal bar chart displaying top 10 OTU
-function optionChanged(value) {
-
-    // Console log to test function
-    console.log('called function');
-    console.log(value);
-    console.log(typeof value);
+function barChart(value) {
 
     // Filter samples data by id selected in dropdown menu
     var selectedSample = dataDB.samples.filter(subject => 
         (subject.id === value));
 
-    console.log(selectedSample[0]);
-
     // Get sample data 
-
     var otuLabels = selectedSample[0].otu_labels;
-
     var otuIds = selectedSample[0].otu_ids;
-
     var sampleValues = selectedSample[0].sample_values;
 
     // Slice top 10 from each array
 
     var top10_otuLabels = otuLabels.slice(0, 10);
-
     var top10_otuIds = otuIds.slice(0, 10);
-
     var top10_sampleValues = sampleValues.slice(0, 10);
 
-    console.log(top10_otuLabels);
-    console.log(top10_otuIds);
-    console.log(top10_sampleValues);
-
     // Loop to add  "OTU" in front of OTU IDs and convert from integer to string
-    
     var top10_otuIdsLabels = [];
 
     for (var i = 0; i < top10_otuIds.length; i++) {
         top10_otuIdsLabels.push("OTU " + top10_otuIds[i]);
     };
 
-    console.log(top10_otuIdsLabels);
-
     // Reverse the order to plot in descending order
-
     top10_otuLabels = top10_otuLabels.reverse();
-
     top10_otuIdsLabels = top10_otuIdsLabels.reverse();
-
     top10_sampleValues = top10_sampleValues.reverse();
 
-    console.log(top10_otuLabels);
-    console.log(top10_otuIdsLabels);
-    console.log(top10_sampleValues);
 
     // Set up trace
-
     var trace1 = {
         x: top10_sampleValues, 
         y: top10_otuIdsLabels,
@@ -111,11 +82,9 @@ function optionChanged(value) {
     };
 
     // Data for plotting into an array
-
     var data = [trace1];
 
     // Set up layout
-
     var layout = {
         title: "Top 10 Operational Taxonomic Units (OTU)",
         xaxis: {
@@ -123,37 +92,25 @@ function optionChanged(value) {
             showline: false,
             showticklabels: true,
             showgrid: true
-        },
-        // width: 600,
-        // height: 600,
-        // paper_bgcolor: 'rgb(248,248,255)',
-        // plot_bgcolor: 'rgb(248,248,255)',
+        }
     };
 
     // Render plot
     Plotly.newPlot("bar", data, layout);
 };
 
-// STEP 3
+// STEP THREE
 // Create a bubble chart that displays each sample
 
 // Function to create a bubble chart
 function bubbleChart() {
 
-    // Console log to test function
-    console.log('called bubble function');
-
     // Use DOM to get value of id for bar chart when page first loads
     var inputValue = document.getElementById("selDataset").value;
-
-    console.log(inputValue);
-    console.log(typeof inputValue);
 
     // Filter samples data by id selected in dropdown menu
     var selectedSample = dataDB.samples.filter(subject => 
         (subject.id === inputValue));
-
-    console.log(selectedSample[0]);
 
     // Get sample data 
     var otuLabels = selectedSample[0].otu_labels;
@@ -161,10 +118,6 @@ function bubbleChart() {
     var otuIds = selectedSample[0].otu_ids;
 
     var sampleValues = selectedSample[0].sample_values;
-
-    console.log(otuLabels);
-    console.log(otuIds);
-    console.log(sampleValues);
 
     // Set up trace
     var trace2 = {
@@ -198,28 +151,20 @@ function bubbleChart() {
             title: "OTU ID"
         },
         showlegend: false
-        // width: 600,
-        // height: 600,
-        // paper_bgcolor: 'rgb(248,248,255)',
-        // plot_bgcolor: 'rgb(248,248,255)',
     };
 
     // Render plot
     Plotly.newPlot("bubble", data2, layout2);
 }
 
-// STEP THREE
-// Display the sample metadata
+// STEP FOUR AND FIVE
+// Display the sample metadata and each key-value pair
 
 // Function to populate the panel-body
 function popMetadata() {
 
     // Use DOM to get value of id for bar chart when page first loads
     var inputValue = document.getElementById("selDataset").value;
-
-    console.log("popMetadata function")
-    console.log(inputValue);
-    console.log(typeof inputValue);
 
     var transformedInputValue = parseInt(inputValue);
 
@@ -246,68 +191,19 @@ function popMetadata() {
     });
 }
 
-// BONUS CHALLENGE
-// Create a gauge chart to plot the weekly washing frequency of the selected subject
+// STEP SIX
+// Update all of the plots any time that a new sample is selected
 
-// Function to create gauge chart
-function gaugeChart() {
+// Create a function to tie all functions together
+function optionChanged(value) {
 
-    // Console log to test function
-    console.log('called gauge function');
+    // Invoke function based on value in dropdown menu
+    barChart(value);
 
-    // Use DOM to get value of id for bar chart when page first loads
-    var inputValue = document.getElementById("selDataset").value;
+    bubbleChart(value);
 
-    console.log(inputValue);
-    console.log(typeof inputValue);
+    popMetadata(value);
 
-    var transformedInputValue = parseInt(inputValue);
+    gaugeChart(value);
 
-    // Filter samples data by id selected in dropdown menu
-    var selectedMetadata = dataDB.metadata.filter(subject => 
-        (subject.id === transformedInputValue));
-
-    console.log(selectedMetadata[0]);
-    console.log(selectedMetadata[0].wfreq)
-
-    // Get sample data 
-    var washFreq = selectedMetadata[0].wfreq;
-
-    trace3 = {
-        domain: { 
-            x: [0,1], 
-            y: [0,1]
-        },
-        value: washFreq,
-        title: { text: "Scrubs per Week"},
-        mode: "gauge",
-        gauge: {
-            axis: { range: [0,9],
-                    tickvals: [0,1,2,3,4,5,6,7,8,9],
-                    ticks: "outside"    
-            },
-            // steps: [
-            //     { range: [0,1], color: 'rgb(128,0,128)', opacity: 95% },
-            //     { range: [1,2], color: 'rgb(128,0,128)', opacity: 85% },
-            //     { range: [2,3], color: 'rgb(128,0,128)', opacity: 75% },
-            //     { range: [3,4], color: 'rgb(128,0,128)', opacity: 65% },
-            //     { range: [4,5], color: 'rgb(128,0,128)', opacity: 55% },
-            //     { range: [5,6], color: 'rgb(128,0,128)', opacity: 45% },
-            //     { range: [6,7], color: 'rgb(128,0,128)', opacity: 35% },
-            //     { range: [7,8], color: 'rgb(128,0,128)', opacity: 25% },
-            //     { range: [8,9], color: 'rgb(128,0,128)', opacity: 15% }
-            // ],
-            color: { gradient: True,
-                     ranges: {
-                        'rgb(128,0,128)': [0,3],
-                        'rgb(128,0,128)': [3,6],
-                        'rgb(128,0,128)': [6,9]
-                    },
-            },
-        }
-    };
-}
-
-
-
-
+};

@@ -80,13 +80,14 @@
 }
 
 .gauge {
-    height: 500px;
-    width: 600px;
+    height: 300px;
+    width: 450px;
     margin: 0 auto; 
  }
 
 .bubble {
-    height: 700px;
+    height: 800px;
     width: 600px;
     margin: 0 auto; 
 }
+
