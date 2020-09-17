@@ -1,0 +1,92 @@
+.hero {
+    position: sticky;
+    height: 300px;
+    padding: 10px;
+    margin: 20px 0px 20px 0px;
+    background: black;
+    background-image: url(../images/biodiversity.jpg);
+    background-attachment: fixed;
+    background-position: bottom-center;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+#dashboard_title {
+    margin-top: 60px; 
+    color: #FDFEFE;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    text-shadow: 4px 6px 5px #283747;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+#dashboard_p {
+    margin-top: 18px;
+    color: #FDFEFE;
+    letter-spacing: 2.8px;
+    word-spacing: 7px;
+    text-shadow: 5px 7px 12px #283747;
+    font-size: 1.7em;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.well {
+    background-color: #800080;
+    color: #FDFEFE;
+    padding: 7px 7px 7px 7px;
+}
+
+.panel-body p {
+    line-height: 12px;
+}
+
+#selDataset {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 0px 0px 0px 5px;
+}
+
+#demo_info {
+    border-color: #800080;
+    margin: 25px 0px 0px 0px;
+}
+
+.panel-heading {
+    background-color: #800080;
+    padding: 7px;
+}
+
+.panel-body {
+    border: 1px solid #800080;
+    background-color: #FDFEFE;
+    padding: 5px 0px 0px 2.5px;
+}
+
+.panel {
+    background-color: #800080;
+}
+
+.panel-title {
+    color: #FDFEFE;
+}
+
+.bar {
+   height: 200px;
+   width: 100px;
+   margin: 0 auto; 
+}
+
+.gauge {
+    height: 500px;
+    width: 600px;
+    margin: 0 auto; 
+ }
+
+.bubble {
+    height: 700px;
+    width: 600px;
+    margin: 0 auto; 
+}
