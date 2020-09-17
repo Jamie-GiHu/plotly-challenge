@@ -162,7 +162,7 @@ function bubbleChart() {
 // Function to populate the panel-body
 function popMetadata(value) {
 
-    var transformedInputValue = parseInt(value); // inputValue
+    var transformedInputValue = parseInt(value);
 
     // Filter samples data by id selected in dropdown menu
     var selectedMetadata = dataDB.metadata.filter(subject => 
