@@ -125,7 +125,6 @@ function bubbleChart() {
         y: sampleValues,
         text: otuLabels,
         mode: "markers",
-        // colorscale: 'YlGnBu',
         marker: {
             color: otuIds,
             opacity: 0.6,
