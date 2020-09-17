@@ -162,9 +162,6 @@ function bubbleChart() {
 // Function to populate the panel-body
 function popMetadata(value) {
 
-    // Use DOM to get value of id for bar chart when page first loads
-    // var inputValue = document.getElementById("selDataset").value;
-
     var transformedInputValue = parseInt(value); // inputValue
 
     // Filter samples data by id selected in dropdown menu
