@@ -200,6 +200,6 @@ function optionChanged(value) {
 
     popMetadata(value);
 
-    gaugeChart(value);
+    gaugeChart(value); // From bonus.js
 
 };
