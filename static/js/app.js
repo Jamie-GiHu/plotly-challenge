@@ -103,14 +103,14 @@ function barChart(value) {
 // Create a bubble chart that displays each sample
 
 // Function to create a bubble chart
-function bubbleChart() {
+function bubbleChart(value) {
 
     // Use DOM to get value of id for bar chart when page first loads
-    var inputValue = document.getElementById("selDataset").value;
+    // var inputValue = document.getElementById("selDataset").value;
 
     // Filter samples data by id selected in dropdown menu
     var selectedSample = dataDB.samples.filter(subject => 
-        (subject.id === inputValue));
+        (subject.id === value)); // inputValue
 
     // Get sample data 
     var otuLabels = selectedSample[0].otu_labels;
@@ -161,12 +161,12 @@ function bubbleChart() {
 // Display the sample metadata and each key-value pair
 
 // Function to populate the panel-body
-function popMetadata() {
+function popMetadata(value) {
 
     // Use DOM to get value of id for bar chart when page first loads
-    var inputValue = document.getElementById("selDataset").value;
+    // var inputValue = document.getElementById("selDataset").value;
 
-    var transformedInputValue = parseInt(inputValue);
+    var transformedInputValue = parseInt(value); // inputValue
 
     // Filter samples data by id selected in dropdown menu
     var selectedMetadata = dataDB.metadata.filter(subject => 
