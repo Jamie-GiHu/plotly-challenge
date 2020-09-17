@@ -46,12 +46,12 @@ function gaugeChart(value) {
     var freqCalc = washFreq / 9 * 180
     var degrees = 180 - freqCalc, radius = 0.5;
     var radians = degrees * Math.PI / 180;
-    var aX = (0.01 * Math.cos((degrees - 90) * Math.PI / 180))+0.51;
-    var aY = (0.01 * Math.sin((degrees - 90) * Math.PI / 180))+0.47;
-    var bX = (-0.01 * Math.cos((degrees - 90) * Math.PI / 180))+0.51;
-    var bY = (-0.01 * Math.sin((degrees - 90) * Math.PI / 180))+0.47;
-    var cX = ((radius * Math.cos(radians))*0.5)+0.51;
-    var cY = ((radius * Math.sin(radians))*0.5)+0.47+0.05;
+    var aX = (0.01 * Math.cos((degrees - 90) * Math.PI / 180)) + 0.51;
+    var aY = (0.01 * Math.sin((degrees - 90) * Math.PI / 180)) + 0.47;
+    var bX = (-0.01 * Math.cos((degrees - 90) * Math.PI / 180)) + 0.51;
+    var bY = (-0.01 * Math.sin((degrees - 90) * Math.PI / 180)) + 0.47;
+    var cX = ((radius * Math.cos(radians))*0.5) + 0.51;
+    var cY = ((radius * Math.sin(radians))*0.5) + 0.47 + 0.05;
 
     var path = 'M ' + aX + ' ' + aY +
     ' L ' + bX + ' ' + bY +
