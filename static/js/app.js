@@ -103,14 +103,14 @@ function barChart(value) {
 // Create a bubble chart that displays each sample
 
 // Function to create a bubble chart
-function bubbleChart(value) {
+function bubbleChart() {
 
     // Use DOM to get value of id for bar chart when page first loads
-    // var inputValue = document.getElementById("selDataset").value;
+    var inputValue = document.getElementById("selDataset").value;
 
     // Filter samples data by id selected in dropdown menu
     var selectedSample = dataDB.samples.filter(subject => 
-        (subject.id === value)); // inputValue
+        (subject.id === inputValue)); 
 
     // Get sample data 
     var otuLabels = selectedSample[0].otu_labels;
@@ -125,7 +125,7 @@ function bubbleChart(value) {
         y: sampleValues,
         text: otuLabels,
         mode: "markers",
-        colorscale: 'YlGnBu',
+        // colorscale: 'YlGnBu',
         marker: {
             color: otuIds,
             opacity: 0.6,
