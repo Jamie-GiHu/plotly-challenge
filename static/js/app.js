@@ -105,7 +105,7 @@ function barChart(value) {
 // Function to create a bubble chart
 function bubbleChart() {
 
-    // Use DOM to get value of id for bar chart when page first loads
+    // Use DOM to get value of id for bubble chart when page first loads
     var inputValue = document.getElementById("selDataset").value;
 
     // Filter samples data by id selected in dropdown menu
