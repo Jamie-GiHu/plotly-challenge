@@ -4,10 +4,7 @@
 // Function to create gauge chart
 function gaugeChart(value) {
 
-    // Use DOM to get value of id for bar chart when page first loads
-    // var inputValue = document.getElementById("selDataset").value;
-
-    var transformedInputValue = parseInt(value); // inputValue
+    var transformedInputValue = parseInt(value);
 
     // Filter samples data by id selected in dropdown menu
     var selectedMetadata = dataDB.metadata.filter(subject => 
