@@ -1,16 +1,10 @@
 // STEP ONE 
 // Use D3 to read in samples.json
-// var pathSamples = `/static/data/samples.json`;
 var pathSamples = `https://jamie-gihu.github.io/plotly-challenge/static/data/samples.json`;
 var dataDB;
 
 // Fetch json file using D3 to test in local machine
 d3.json(pathSamples)
-//    .then(data => {dataDB = data
-
-// To get it to work on GitHub Pages
-// fetch(pathSamples)
-    // .then(res => res.json())
     .then(data => {dataDB = data
 
 // STEP TWO
