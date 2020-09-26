@@ -16,5 +16,5 @@ The challenge is to build an interactive dashboard to explore the Belly Button B
 4. Belly Button Biodiversity dataset (filename: samples.json in sub-folder 'static/data/')
 
 #### Dashboard
-![](static/images/Fig1.png)
-![](static/images/Fig2.png)
+![](/static/images/Fig1.png)
+![](/static/images/Fig2.png)
