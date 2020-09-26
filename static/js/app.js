@@ -13,6 +13,8 @@ fetch(pathSamples)
     .then(res => res.json())
     .then(data => {dataDB = data
 
+        console.log(dataDB);
+
 // STEP TWO
 // Create a horizontal bar chart displaying top 10 OTU
 
