@@ -11,7 +11,7 @@ var dataDB;
 // To get it to work on GitHub Pages
 fetch(pathSamples)
     .then(res => res.json())
-    .then(json => {dataDB = data
+    .then(data => {dataDB = data
 
 // STEP TWO
 // Create a horizontal bar chart displaying top 10 OTU
