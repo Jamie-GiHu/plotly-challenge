@@ -77,7 +77,8 @@ function barChart(value) {
             line: {
                 color: 'rgb(128,0,128)',
                 width: 1,
-            } 
+            },
+            hoverinfo: "y+text" 
         }
     };
 
