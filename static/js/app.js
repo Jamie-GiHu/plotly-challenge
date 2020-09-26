@@ -1,7 +1,7 @@
 // STEP ONE 
 // Use D3 to read in samples.json
 
-var pathSamples = `/static/data/samples.json`;
+var pathSamples = `https://jamie-gihu.github.io/plotly-challenge/static/data/samples.json`;
 var dataDB;
 
 d3.json(pathSamples)
@@ -78,7 +78,6 @@ function barChart(value) {
                 color: 'rgb(128,0,128)',
                 width: 1,
             },
-            hoverinfo: "y+text" 
         }
     };
 
