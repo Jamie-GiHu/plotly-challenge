@@ -1,11 +1,17 @@
 // STEP ONE 
 // Use D3 to read in samples.json
-
+// var pathSamples = `/static/data/samples.json`;
 var pathSamples = `https://jamie-gihu.github.io/plotly-challenge/static/data/samples.json`;
 var dataDB;
 
-d3.json(pathSamples)
-    .then(data => {dataDB = data
+// Fetch json file using D3 to test in local machine
+// d3.json(pathSamples)
+//    .then(data => {dataDB = data
+
+// To get it to work on GitHub Pages
+fetch(pathSamples)
+    .then(res => res.json())
+    .then(json => {dataDB = data
 
 // STEP TWO
 // Create a horizontal bar chart displaying top 10 OTU
