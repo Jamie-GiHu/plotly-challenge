@@ -1,19 +1,17 @@
 // STEP ONE 
 // Use D3 to read in samples.json
-// var pathSamples = `/static/data/samples.json`;
-var pathSamples = `https://jamie-gihu.github.io/plotly-challenge/static/data/samples.json`;
+var pathSamples = `/static/data/samples.json`;
+// var pathSamples = `https://jamie-gihu.github.io/plotly-challenge/static/data/samples.json`;
 var dataDB;
 
 // Fetch json file using D3 to test in local machine
-// d3.json(pathSamples)
-//    .then(data => {dataDB = data
+d3.json(pathSamples)
+   .then(data => {dataDB = data
 
 // To get it to work on GitHub Pages
-fetch(pathSamples)
-    .then(res => res.json())
-    .then(data => {dataDB = data
-
-        console.log(dataDB);
+// fetch(pathSamples)
+//     .then(res => res.json())
+//     .then(data => {dataDB = data
 
 // STEP TWO
 // Create a horizontal bar chart displaying top 10 OTU
@@ -175,8 +173,6 @@ function popMetadata(value) {
     // Filter samples data by id selected in dropdown menu
     var selectedMetadata = dataDB.metadata.filter(subject => 
         (subject.id === transformedInputValue));
-
-    console.log(selectedMetadata[0]);
 
     // Select the div that would contain the panel-body
     var panelBody = d3.select(".panel-body");
